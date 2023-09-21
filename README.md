@@ -4,5 +4,6 @@ Ez az oldal azért készül, hogy szolfézsozni és reactozni gyakoroljak. Olyan
 
 Feladatok amiket szeretnék csinálni:
 
-* Hármashangzatok, felismerés
+* Hangközök
+* Hármashangzatok
 * Modális hangsorok

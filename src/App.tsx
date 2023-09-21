@@ -1,7 +1,8 @@
+import IntervalsPage from "./pages/intervals-page";
+
 function App() {
   return (
-    <div> empty
-    </div>
+    <IntervalsPage />
   );
 }
 
