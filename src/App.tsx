@@ -1,8 +1,11 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import IntervalsPage from "./pages/intervals-page";
 
 function App() {
   return (
-    <IntervalsPage />
+    <ChakraProvider>
+      <IntervalsPage />
+    </ChakraProvider>
   );
 }
 

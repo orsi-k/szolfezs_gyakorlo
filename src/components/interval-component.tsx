@@ -1,21 +1,35 @@
-import { Note } from "tonal";
+import { Note, AbcNotation } from "tonal";
 // @ts-ignore
-import { Notation, Midi } from 'react-abc';
+import { Notation, Midi } from "react-abc";
+import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+
+import "../midi.css";
 
 const IntervalComponent = (props: any) => {
-    const startNote = props.startNote;
-    const endNote = Note.get(Note.transpose(startNote, props.interval))
-    
-    return (
-        <div>
-            <h4>{props.interval.name}</h4>
-            Starting note: {startNote.letter}<br/>
-            Ending note: {endNote.letter}
-            <Notation notation={`L: 1\n[${startNote.letter}${endNote.letter}]`} />
-            <Midi notation={`L: 1\n[${startNote.letter}${endNote.letter}]`} />
-            <Midi notation={`L: 1/2\n${startNote.letter}${endNote.letter}`} />
-        </div>
-    )
-}
+  const startNote = props.startNote;
+  const endNote = Note.get(Note.transpose(startNote, props.interval));
 
-export default IntervalComponent
+  return (
+    <div style={{ width: "180px" }}>
+      <Card>
+        <CardHeader>{props.interval}</CardHeader>
+        <CardBody>
+          Starting note: {startNote.pc}
+          <br />
+          Ending note: {endNote.pc}
+          <Notation notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)}${AbcNotation.scientificToAbcNotation(endNote.name)}]`} />
+          <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
+            Together:
+            <Midi notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)}${AbcNotation.scientificToAbcNotation(endNote.name)}]`} />
+          </div>
+          <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
+            Separate:
+            <Midi notation={`L: 1/2\n${AbcNotation.scientificToAbcNotation(startNote)}${AbcNotation.scientificToAbcNotation(endNote.name)}`} />
+          </div>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
+
+export default IntervalComponent;
