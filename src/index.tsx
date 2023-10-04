@@ -7,6 +7,7 @@ import Root from "./routes/root";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import IntervalsPage from "./routes/intervals-page";
+import IntervalsTestPage from "./routes/intervals-test-page";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "intervals",
         element: <IntervalsPage />,
+      },
+      {
+        path: "intervals/test",
+        element: <IntervalsTestPage />,
       },
     ],
   },

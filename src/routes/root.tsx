@@ -13,6 +13,9 @@ const Root = () => {
             <li>
               <Link to={`/intervals`}>Hangközök</Link>
             </li>
+            <li>
+              <Link to={`/intervals/test`}>Hangközök gyakorlás</Link>
+            </li>
           </ul>
         </nav>
       </div>

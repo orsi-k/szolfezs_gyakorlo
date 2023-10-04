@@ -20,22 +20,24 @@ const IntervalComponent = (props: any) => {
       <Card>
         <CardHeader>{showInterval ? props.interval : "??"}</CardHeader>
         <CardBody>
-          Starting note: {startNote.pc}
+          Starting note: {startNote}
           <br />
-          Ending note: {showInterval && endNote.pc}
-          <Notation notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)}${showInterval ? AbcNotation.scientificToAbcNotation(endNote.name) : ""}]`} />
+          Ending note: {showInterval && endNote.name}
+          <Notation
+            notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)} ${showInterval ? AbcNotation.scientificToAbcNotation(endNote.name) : ""}]`}
+          />
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Together:
             <Midi
-              key={startNote.pc + props.interval}
-              notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)}${AbcNotation.scientificToAbcNotation(endNote.name)}]`}
+              key={startNote + props.interval}
+              notation={`L: 1\n [ ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(endNote.name)} ]`}
             />
           </div>
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Separate:
             <Midi
-              key={startNote.pc + props.interval}
-              notation={`L: 1/2\n${AbcNotation.scientificToAbcNotation(startNote)}${AbcNotation.scientificToAbcNotation(endNote.name)}`}
+              key={startNote + props.interval}
+              notation={`L: 1/2\n ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(endNote.name)} `}
             />
           </div>
           {props.isTest && <Button onClick={() => setShowInterval(true)}>Show</Button>}
