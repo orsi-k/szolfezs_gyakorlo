@@ -17,7 +17,7 @@ const IntervalComponent = (props: any) => {
 
   return (
     <div style={{ width: "180px" }}>
-      <Card>
+      <Card border="1px" borderColor="gray.200">
         <CardHeader>{showInterval ? props.interval : "??"}</CardHeader>
         <CardBody>
           Starting note: {startNote}

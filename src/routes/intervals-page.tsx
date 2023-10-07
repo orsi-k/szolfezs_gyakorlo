@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Note } from "tonal";
-import { Box, Divider, Select, Stack } from "@chakra-ui/react";
+import { Box, Divider, Flex, Select, Stack, StackDivider } from "@chakra-ui/react";
 
 import IntervalComponent from "../components/interval-component";
 import { intervals, startingNotes } from "../data";
@@ -9,10 +9,13 @@ const IntervalsPage = () => {
   const [startingNote, setStartingNote] = useState(Note.get("C4"));
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <Box>
-        Select starting note:
-        <Select w="150px" placeholder="C4" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
+    <Flex direction="column" m="40px">
+      <Flex paddingBottom="30px" align="baseline" marginLeft="30px">
+        <span>Select starting note:</span>
+        <Select marginLeft="10px" w="150px" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
+          <option key={"C4"} value={"C4"}>
+            C4
+          </option>
           {startingNotes.map((note) => {
             return (
               <option key={note} value={note}>
@@ -21,9 +24,8 @@ const IntervalsPage = () => {
             );
           })}
         </Select>
-      </Box>
-      <Divider p="30px" />
-      <Stack direction="row" wrap="wrap">
+      </Flex>
+      <Stack direction="row" wrap="wrap" overflow="auto" gap="20px">
         {intervals.map((interv) => {
           return (
             <div key={interv}>
@@ -33,7 +35,7 @@ const IntervalsPage = () => {
         })}
         {/* <IntervalComponent startNote={startingNote.name} interval={"8P"} isTest={false} /> */}
       </Stack>
-    </div>
+    </Flex>
   );
 };
 

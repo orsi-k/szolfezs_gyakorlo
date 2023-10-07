@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Note } from "tonal";
 
@@ -15,10 +15,11 @@ const IntervalsTestPage = () => {
   };
 
   return (
-    <>
+    <Box m="40px">
+      <Text m="10px">Listen, guess, click on show, new</Text>
       <IntervalComponent startNote={startingNote.name} interval={testInterval} isTest={true} />
-      <Button onClick={randomizeInterval}>New</Button>
-    </>
+      <Button m="30px" onClick={randomizeInterval}>New</Button>
+    </Box>
   );
 };
 
