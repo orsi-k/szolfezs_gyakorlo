@@ -16,7 +16,13 @@ const Sidebar = () => {
               <Link to={`/intervals`}>Hangközök</Link>
             </li>
             <li>
-              <Link to={`/intervals/test`}>Hangközök gyakorlás</Link>
+              <Link to={`/intervals/test`}>Hangköz gyakorlás</Link>
+            </li>
+            <li>
+              <Link to={`/triads`}>Hármashangzatok</Link>
+            </li>
+            <li>
+              <Link to={`/triads/test`}>Hármashangzat gyakorlás</Link>
             </li>
           </ul>
         </nav>

@@ -6,9 +6,11 @@ import "./index.css";
 import Home from "./routes/home";
 import { ChakraProvider } from "@chakra-ui/react";
 
+import Sidebar from "./components/sidebar-component";
 import IntervalsPage from "./routes/intervals-page";
 import IntervalsTestPage from "./routes/intervals-test-page";
-import Sidebar from "./components/sidebar-component";
+import TriadsPage from "./routes/triads-page";
+import TriadsTestPage from "./routes/triads-test-page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +18,8 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="intervals" element={<IntervalsPage />} />
       <Route path="intervals/test" element={<IntervalsTestPage />} />
+      <Route path="triads" element={<TriadsPage />} />
+      <Route path="triads/test" element={<TriadsTestPage />} />
     </Route>
   )
 );
