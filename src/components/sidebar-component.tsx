@@ -9,8 +9,8 @@ const Sidebar = () => {
     <>
       {show ? (
         <Flex direction="column" className="sidebar" p="20px" backgroundColor="gray.200" flexShrink={0}>
-          <Button variant="outline" w="30%" alignSelf="right" onClick={() => setShow(false)}>
-            x
+          <Button variant="outline" w="30%" alignSelf="end" onClick={() => setShow(false)}>
+            {"<"}
           </Button>
           <Link to={`/`}>
             <Heading size="md" p="10px" marginBottom="30px">

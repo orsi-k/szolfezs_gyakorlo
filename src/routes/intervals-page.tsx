@@ -11,7 +11,7 @@ const IntervalsPage = () => {
   return (
     <Flex direction="column" m="40px">
       <Flex paddingBottom="30px" align="baseline" marginLeft="30px">
-        <label htmlFor="startingNote">Select starting note:</label>
+        <label htmlFor="startingNote">Válassz alaphangot:</label>
         <Select id="startingNote" marginLeft="10px" w="150px" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
           <option key={"C4"} value={"C4"}>
             C4

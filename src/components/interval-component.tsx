@@ -18,23 +18,23 @@ const IntervalComponent = (props: any) => {
   return (
     <div style={{ width: "180px" }}>
       <Card border="1px" borderColor="gray.200">
-        <CardHeader>{showInterval ? props.interval.hun : "??"}</CardHeader>
+        <CardHeader fontWeight="bold">{showInterval ? props.interval.hun : "??"}</CardHeader>
         <CardBody>
-          Starting note: {startNote}
+          Alaphang: {startNote}
           <br />
-          Ending note: {showInterval && endNote.name}
+          Másik hang: {showInterval && endNote.name}
           <Notation
             notation={`L: 1\n[${AbcNotation.scientificToAbcNotation(startNote)} ${showInterval ? AbcNotation.scientificToAbcNotation(endNote.name) : ""}]`}
           />
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
-            Together:
+            Együtt:
             <Midi
               key={startNote + props.interval.en}
               notation={`L: 1\n [ ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(endNote.name)} ]`}
             />
           </div>
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
-            Separate:
+            Külön:
             <Midi
               key={startNote + props.interval.en}
               notation={`L: 1/2\n ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(endNote.name)} `}
