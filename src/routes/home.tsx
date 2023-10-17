@@ -1,9 +1,13 @@
-import { Outlet } from "react-router-dom";
-import Sidebar from "../components/sidebar-component";
+import { Card, CardBody, CardHeader, Center, Heading } from "@chakra-ui/react";
 
 const Home = () => {
   return (
-    <div>home</div>
+    <Center w="100%">
+      <Card align="center center" maxW="300px">
+        <CardHeader>  <Heading as='h1' size='lg'>Hello</Heading></CardHeader>
+        <CardBody>Ezen az oldalon hangközöket és hármashangzatokat tudsz meghallgatni és gyakorolni.</CardBody>
+      </Card>
+    </Center>
   );
 };
 

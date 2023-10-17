@@ -12,8 +12,8 @@ const TriadsPage = () => {
   return (
     <Flex direction="column" m="40px">
       <Flex paddingBottom="30px" align="baseline" marginLeft="30px">
-        <span>Select starting note:</span>
-        <Select marginLeft="10px" w="150px" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
+      <label htmlFor="startingNote">Select starting note:</label>
+        <Select id="startingNote" marginLeft="10px" w="150px" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
           <option key={"C4"} value={"C4"}>
             C4
           </option>
