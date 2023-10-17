@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Note } from "tonal";
-import { Box, Divider, Flex, Select, Stack, StackDivider } from "@chakra-ui/react";
+import { Flex, Select, Stack } from "@chakra-ui/react";
 
 import IntervalComponent from "../components/interval-component";
 import { intervals, startingNotes } from "../data";
@@ -28,7 +28,7 @@ const IntervalsPage = () => {
       <Stack direction="row" wrap="wrap" overflow="auto" gap="20px">
         {intervals.map((interv) => {
           return (
-            <div key={interv}>
+            <div key={interv.en}>
               <IntervalComponent startNote={startingNote.name} interval={interv} isTest={false} />
             </div>
           );

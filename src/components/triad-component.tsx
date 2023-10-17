@@ -9,10 +9,10 @@ import "../midi.css";
 const TriadComponent = (props: any) => {
   const [showTriad, setShowTriad] = useState(!props.isTest);
   const startNote = props.startNote;
-  const intervals = Chord.getChord(props.quality, startNote.name).intervals;
+  const intervals = Chord.getChord(props.quality.en, startNote.name).intervals;
   const middleNote = Note.get(Note.transpose(startNote, intervals[1])).name;
   const endNote = Note.get(Note.transpose(startNote, intervals[2])).name;
-console.log(props.quality, startNote.name)
+
   useEffect(() => {
     setShowTriad(!props.isTest);
   }, [props]);
@@ -20,7 +20,7 @@ console.log(props.quality, startNote.name)
   return (
     <div style={{ width: "180px" }}>
       <Card border="1px" borderColor="gray.200">
-        <CardHeader>{showTriad ? `${startNote.name} ${props.quality}` : "??"}</CardHeader>
+        <CardHeader>{showTriad ? `${startNote.name} ${props.quality.hun}` : "??"}</CardHeader>
         <CardBody>
           Starting note: {startNote.name}
           <br />
@@ -33,14 +33,14 @@ console.log(props.quality, startNote.name)
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Together:
             <Midi
-              key={props.quality}
+              key={props.quality.en}
               notation={`L: 1\n [ ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(middleNote)} ${AbcNotation.scientificToAbcNotation(endNote)} ]`}
             />
           </div>
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Separate:
             <Midi
-              key={props.quality}
+              key={props.quality.en}
               notation={`L: 1/2\n ${AbcNotation.scientificToAbcNotation(startNote)} ${AbcNotation.scientificToAbcNotation(middleNote)} ${AbcNotation.scientificToAbcNotation(endNote)} `}
             />
           </div>

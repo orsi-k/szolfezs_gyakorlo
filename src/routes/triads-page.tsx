@@ -29,7 +29,7 @@ const TriadsPage = () => {
       <Stack direction="row" wrap="wrap" overflow="auto" gap="20px">
         {triads.map((triad) => {
           return (
-            <div key={startingNote.name + triad}>
+            <div key={startingNote.name + triad.en}>
               <TriadComponent startNote={startingNote} quality={triad} isTest={false} />
             </div>
           );
