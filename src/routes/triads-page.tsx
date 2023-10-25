@@ -10,8 +10,8 @@ const TriadsPage = () => {
   const [startingNote, setStartingNote] = useState(Note.get("C4"));
 
   return (
-    <Flex direction="column" m="40px">
-      <Flex paddingBottom="30px" align="baseline" marginLeft="30px">
+    <Flex direction="column" maxW="800px" margin="auto">
+      <Flex paddingBottom="30px" align="baseline" margin="auto">
       <label htmlFor="startingNote">Válassz alaphangot:</label>
         <Select id="startingNote" marginLeft="10px" w="150px" onChange={(e) => setStartingNote(Note.get(e.target.value))}>
           <option key={"C4"} value={"C4"}>
@@ -26,7 +26,7 @@ const TriadsPage = () => {
           })}
         </Select>
       </Flex>
-      <Stack direction="row" wrap="wrap" overflow="auto" gap="20px">
+      <Stack direction="row" wrap="wrap" gap="20px" justifyContent="center" overflow="auto">
         {triads.map((triad) => {
           return (
             <div key={startingNote.name + triad.en}>
