@@ -7,7 +7,7 @@ import { Card, CardHeader, CardBody, Button } from "@chakra-ui/react";
 import "../midi.css";
 import { TriadProps } from "../types";
 
-const TriadComponent = ({startNote, quality, isTest}: TriadProps) => {
+const TriadComponent = ({ startNote, quality, isTest }: TriadProps) => {
   const [showTriad, setShowTriad] = useState(!isTest);
   const intervals = Chord.getChord(quality.en, startNote).intervals;
   const middleNote = Note.get(Note.transpose(startNote, intervals[1])).name;
@@ -24,8 +24,10 @@ const TriadComponent = ({startNote, quality, isTest}: TriadProps) => {
 
   return (
     <div style={{ width: "180px" }}>
-      <Card border="1px" borderColor="gray.200">
-        <CardHeader fontWeight="bold">{showTriad ? `${startNote} ${quality.hun}` : "??"}</CardHeader>
+      <Card variant="filled" bg="white" border="0px" borderRadius="xl">
+        <CardHeader bg="gray.100" borderTopLeftRadius="inherit" borderTopRightRadius="inherit" fontWeight="bold" textAlign="center">
+          {showTriad ? `${startNote} ${quality.hun}` : "??"}
+        </CardHeader>
         <CardBody>
           Alaphang: {startNote}
           <br />
@@ -37,11 +39,15 @@ const TriadComponent = ({startNote, quality, isTest}: TriadProps) => {
             Együtt:
             <Midi key={quality.en} notation={`L: 1\n [ ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} ]`} />
           </div>
-          <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "5px", marginBottom: "10px" }}>
             Külön:
             <Midi key={quality.en} notation={`L: 1/2\n ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} `} />
           </div>
-          {isTest && <Button onClick={() => setShowTriad(true)}>Show</Button>}
+          {isTest && (
+            <Button w="100%" onClick={() => setShowTriad(true)}>
+              Felfed
+            </Button>
+          )}
         </CardBody>
       </Card>
     </div>

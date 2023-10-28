@@ -1,4 +1,4 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 import { Note } from "tonal";
 
@@ -15,11 +15,13 @@ const IntervalsTestPage = () => {
   };
 
   return (
-    <Box m="40px">
-      <Text m="10px">Listen, guess, click on show, new</Text>
+    <Flex direction="column" align="center">
+      <Heading size="md" m="25px">Hangköz felismerés</Heading>
       <IntervalComponent startNote={startingNote.name} interval={testInterval} isTest={true} />
-      <Button m="30px" onClick={randomizeInterval}>New</Button>
-    </Box>
+      <Button w="180px" m="30px" onClick={randomizeInterval}>
+        Következő
+      </Button>
+    </Flex>
   );
 };
 

@@ -4,15 +4,15 @@ import { Link, Outlet } from "react-router-dom";
 const Navbar = () => {
   return (
     <Flex direction="column">
-      <Flex direction="column" backgroundColor="gray.200" p="20px" flexShrink={0} w="100%" h="" pos="fixed" zIndex="1">
+      <Flex direction="column" backgroundColor="gray.800" p="20px" flexShrink={0} w="100%" h="" pos="fixed" zIndex="1">
         <Link to={`/`} style={{ alignSelf: "center" }}>
-          <Heading size="md">Szolfézs gyakorló</Heading>
+          <Heading size="md" color="gray.100">Szolfézs gyakorló</Heading>
         </Link>
-        <Divider m="10px" w="70%" alignSelf="center" />
+        <Divider m="10px" w="3%" alignSelf="center" />
         <nav>
           <Flex dir="row" wrap="nowrap" justifyContent="center" gap="50px" zIndex="100">
             <Menu>
-              <MenuButton as={Button} leftIcon={<img src="note.png" alt="" />} rightIcon={<img src="note.png" alt="" />}>
+              <MenuButton as={Button} leftIcon={<img src="/note.png" alt="" />} rightIcon={<img src="/note.png" alt="" />}>
                 Menü
               </MenuButton>
               <MenuList>

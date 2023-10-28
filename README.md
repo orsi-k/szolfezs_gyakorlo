@@ -8,4 +8,7 @@ Feladatok amiket szeretnék csinálni:
 
 * Hangközök
 * Hármashangzatok
-* Modális hangsorok
+* Fordítások*
+* Szolmizálás*
+* Négyeshangzat*
+* Modális hangsorok*

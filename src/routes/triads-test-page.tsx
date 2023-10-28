@@ -1,4 +1,4 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 import { Note } from "tonal";
 
@@ -10,17 +10,19 @@ const TriadsTestPage = () => {
   const [testTriad, setTestTriad] = useState(triads[Math.floor(Math.random() * triads.length)]);
   const [startingNote, setStartingNote] = useState(Note.get(startingNotes[Math.floor(Math.random() * startingNotes.length)]));
 
-  const randomizeInterval = () => {
+  const randomizeTriad = () => {
     setTestTriad(triads[Math.floor(Math.random() * triads.length)]);
     setStartingNote(Note.get(startingNotes[Math.floor(Math.random() * startingNotes.length)]));
   };
 
   return (
-    <Box m="40px">
-      <Text m="10px">Listen, guess, click on show, new</Text>
+    <Flex direction="column" align="center">
+      <Heading size="md" m="25px">Hármashangzat felismerés</Heading>
       <TriadComponent startNote={startingNote.name} quality={testTriad} isTest={true} />
-      <Button m="30px" onClick={randomizeInterval}>New</Button>
-    </Box>
+      <Button w="180px" m="30px" onClick={randomizeTriad}>
+        Következő
+      </Button>
+    </Flex>
   );
 };
 

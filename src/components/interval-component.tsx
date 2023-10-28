@@ -20,8 +20,10 @@ const IntervalComponent = ({ startNote, isTest, interval }: IntervalProps) => {
 
   return (
     <div style={{ width: "180px" }}>
-      <Card border="1px" borderColor="gray.200">
-        <CardHeader fontWeight="bold">{showInterval ? interval.hun : "??"}</CardHeader>
+      <Card variant="filled" bg="white" border="0px" borderRadius="xl">
+        <CardHeader bg="gray.100" borderTopLeftRadius="inherit" borderTopRightRadius="inherit" fontWeight="bold" textAlign="center">
+          {showInterval ? interval.hun : "??"}
+        </CardHeader>
         <CardBody>
           Alaphang: {startNote}
           <br />
@@ -31,11 +33,15 @@ const IntervalComponent = ({ startNote, isTest, interval }: IntervalProps) => {
             Együtt:
             <Midi key={startNote + interval.en} notation={`L: 1\n [ ${abcStartNote} ${abcEndNote} ]`} />
           </div>
-          <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "5px", marginBottom: "10px" }}>
             Külön:
             <Midi key={startNote + interval.en} notation={`L: 1/2\n ${abcStartNote} ${abcEndNote} `} />
           </div>
-          {isTest && <Button onClick={() => setShowInterval(true)}>Show</Button>}
+          {isTest && (
+            <Button w="100%" onClick={() => setShowInterval(true)}>
+              Felfed
+            </Button>
+          )}
         </CardBody>
       </Card>
     </div>
