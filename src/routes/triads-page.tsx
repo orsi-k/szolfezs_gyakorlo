@@ -5,6 +5,7 @@ import { Flex, Select, Stack } from "@chakra-ui/react";
 import TriadComponent from "../components/triad-component";
 
 import { startingNotes, triads } from "../data";
+import { TriadType } from "../types";
 
 const TriadsPage = () => {
   const [startingNote, setStartingNote] = useState(Note.get("C4"));
@@ -27,10 +28,10 @@ const TriadsPage = () => {
         </Select>
       </Flex>
       <Stack direction="row" wrap="wrap" gap="20px" justifyContent="center" overflow="auto">
-        {triads.map((triad) => {
+        {triads.map((triad: TriadType) => {
           return (
             <div key={startingNote.name + triad.en}>
-              <TriadComponent startNote={startingNote} quality={triad} isTest={false} />
+              <TriadComponent startNote={startingNote.name} quality={triad} isTest={false} />
             </div>
           );
         })}

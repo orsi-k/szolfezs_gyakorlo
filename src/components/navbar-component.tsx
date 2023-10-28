@@ -1,4 +1,4 @@
-import { Flex, Heading, Divider, Box, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { Flex, Heading, Divider, Box, Menu, MenuButton, MenuList, MenuItem, MenuDivider, Button } from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
@@ -12,7 +12,9 @@ const Navbar = () => {
         <nav>
           <Flex dir="row" wrap="nowrap" justifyContent="center" gap="50px" zIndex="100">
             <Menu>
-              <MenuButton>Hangközök</MenuButton>
+              <MenuButton as={Button} leftIcon={<img src="note.png" alt="" />} rightIcon={<img src="note.png" alt="" />}>
+                Menü
+              </MenuButton>
               <MenuList>
                 <MenuItem>
                   <Link to={`/intervals`}>Hangközök</Link>
@@ -20,11 +22,7 @@ const Navbar = () => {
                 <MenuItem>
                   <Link to={`/intervals/test`}>Hangköz gyakorlás</Link>
                 </MenuItem>
-              </MenuList>
-            </Menu>
-            <Menu>
-              <MenuButton>Hármashangzatok</MenuButton>
-              <MenuList>
+                <MenuDivider />
                 <MenuItem>
                   <Link to={`/triads`}>Hármashangzatok</Link>
                 </MenuItem>

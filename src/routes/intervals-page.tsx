@@ -4,6 +4,7 @@ import { Flex, Select, Stack } from "@chakra-ui/react";
 
 import IntervalComponent from "../components/interval-component";
 import { intervals, startingNotes } from "../data";
+import { IntervalType } from "../types";
 
 const IntervalsPage = () => {
   const [startingNote, setStartingNote] = useState(Note.get("C4"));
@@ -26,14 +27,13 @@ const IntervalsPage = () => {
         </Select>
       </Flex>
       <Stack direction="row" wrap="wrap" gap="20px" justifyContent="center" overflow="auto">
-        {intervals.map((interv) => {
+        {intervals.map((interv: IntervalType) => {
           return (
             <div key={interv.en}>
               <IntervalComponent startNote={startingNote.name} interval={interv} isTest={false} />
             </div>
           );
         })}
-        {/* <IntervalComponent startNote={startingNote.name} interval={"8P"} isTest={false} /> */}
       </Stack>
     </Flex>
   );

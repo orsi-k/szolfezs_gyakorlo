@@ -18,7 +18,7 @@ const TriadsTestPage = () => {
   return (
     <Box m="40px">
       <Text m="10px">Listen, guess, click on show, new</Text>
-      <TriadComponent startNote={startingNote} quality={testTriad} isTest={true} />
+      <TriadComponent startNote={startingNote.name} quality={testTriad} isTest={true} />
       <Button m="30px" onClick={randomizeInterval}>New</Button>
     </Box>
   );

@@ -5,11 +5,11 @@ import { Notation, Midi } from "react-abc";
 import { Card, CardHeader, CardBody, Button } from "@chakra-ui/react";
 
 import "../midi.css";
+import { TriadProps } from "../types";
 
-const TriadComponent = (props: any) => {
-  const [showTriad, setShowTriad] = useState(!props.isTest);
-  const startNote = props.startNote;
-  const intervals = Chord.getChord(props.quality.en, startNote.name).intervals;
+const TriadComponent = ({startNote, quality, isTest}: TriadProps) => {
+  const [showTriad, setShowTriad] = useState(!isTest);
+  const intervals = Chord.getChord(quality.en, startNote).intervals;
   const middleNote = Note.get(Note.transpose(startNote, intervals[1])).name;
   const endNote = Note.get(Note.transpose(startNote, intervals[2])).name;
   const abcNotes = [
@@ -19,15 +19,15 @@ const TriadComponent = (props: any) => {
   ];
 
   useEffect(() => {
-    setShowTriad(!props.isTest);
-  }, [props]);
+    setShowTriad(!isTest);
+  }, [startNote, quality, isTest]);
 
   return (
     <div style={{ width: "180px" }}>
       <Card border="1px" borderColor="gray.200">
-        <CardHeader fontWeight="bold">{showTriad ? `${startNote.name} ${props.quality.hun}` : "??"}</CardHeader>
+        <CardHeader fontWeight="bold">{showTriad ? `${startNote} ${quality.hun}` : "??"}</CardHeader>
         <CardBody>
-          Alaphang: {startNote.name}
+          Alaphang: {startNote}
           <br />
           Középső hang: {showTriad && middleNote}
           <br />
@@ -35,13 +35,13 @@ const TriadComponent = (props: any) => {
           <Notation notation={`L: 1\n[${abcNotes[0]} ${showTriad ? abcNotes[1] : ""} ${showTriad ? abcNotes[2] : ""}]`} />
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Együtt:
-            <Midi key={props.quality.en} notation={`L: 1\n [ ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} ]`} />
+            <Midi key={quality.en} notation={`L: 1\n [ ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} ]`} />
           </div>
           <div style={{ display: "flex", flexDirection: "row", gap: "5px" }}>
             Külön:
-            <Midi key={props.quality.en} notation={`L: 1/2\n ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} `} />
+            <Midi key={quality.en} notation={`L: 1/2\n ${abcNotes[0]} ${abcNotes[1]} ${abcNotes[2]} `} />
           </div>
-          {props.isTest && <Button onClick={() => setShowTriad(true)}>Show</Button>}
+          {isTest && <Button onClick={() => setShowTriad(true)}>Show</Button>}
         </CardBody>
       </Card>
     </div>
