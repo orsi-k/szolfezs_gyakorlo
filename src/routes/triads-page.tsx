@@ -30,7 +30,7 @@ const TriadsPage = () => {
         {triads.map((triad: TriadType) => {
           return (
             <div key={startingNote + triad.en}>
-              <TriadComponent startNote={startingNote} quality={triad} isTest={false} />
+              <TriadComponent tonic={startingNote} quality={triad} inversion={0} isTest={false} />
             </div>
           );
         })}
@@ -43,7 +43,7 @@ const TriadsPage = () => {
         {triads.map((triad: TriadType) => {
           return (
             <div key={startingNote + triad.en}>
-              <TriadComponent startNote={startingNote} quality={triad} isTest={false} />
+              <TriadComponent tonic={startingNote} quality={triad} inversion={1} isTest={false} />
             </div>
           );
         })}
@@ -56,7 +56,7 @@ const TriadsPage = () => {
         {triads.map((triad: TriadType) => {
           return (
             <div key={startingNote + triad.en}>
-              <TriadComponent startNote={startingNote} quality={triad} isTest={false} />
+              <TriadComponent tonic={startingNote} quality={triad} inversion={2} isTest={false} />
             </div>
           );
         })}

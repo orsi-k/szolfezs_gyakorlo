@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Note, AbcNotation, Chord } from "tonal";
+import { AbcNotation, Chord } from "tonal";
 // @ts-ignore
 import { Notation, Midi } from "react-abc";
 import { Card, CardHeader, CardBody, Button } from "@chakra-ui/react";
@@ -7,11 +7,12 @@ import { Card, CardHeader, CardBody, Button } from "@chakra-ui/react";
 import "../midi.css";
 import { TriadProps } from "../types";
 
-const TriadComponent = ({ startNote, quality, isTest }: TriadProps) => {
+const TriadComponent = ({ tonic, quality, inversion = 0, isTest }: TriadProps) => {
   const [showTriad, setShowTriad] = useState(!isTest);
-  const intervals = Chord.getChord(quality.en, startNote).intervals;
-  const middleNote = Note.get(Note.transpose(startNote, intervals[1])).name;
-  const endNote = Note.get(Note.transpose(startNote, intervals[2])).name;
+  const notes = Chord.steps([tonic, quality.en]);
+  const startNote = notes(0 + inversion);
+  const middleNote = notes(1 + inversion);
+  const endNote = notes(2 + inversion);
   const abcNotes = [
     AbcNotation.scientificToAbcNotation(startNote),
     AbcNotation.scientificToAbcNotation(middleNote),
@@ -26,7 +27,8 @@ const TriadComponent = ({ startNote, quality, isTest }: TriadProps) => {
     <div style={{ width: "180px" }}>
       <Card variant="filled" bg="white" border="0px" borderRadius="xl">
         <CardHeader bg="gray.100" borderTopLeftRadius="inherit" borderTopRightRadius="inherit" fontWeight="bold" textAlign="center">
-          {showTriad ? `${startNote} ${quality.hun}` : "??"}
+          <p>{showTriad ? `${tonic} ${quality.hun}` : "??"}</p>
+          <p>{showTriad && inversion > 0 && inversion + ". fordítás"}</p>
         </CardHeader>
         <CardBody>
           Alaphang: {startNote}

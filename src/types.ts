@@ -15,8 +15,9 @@ export type TriadType = {
   };
   
   export type TriadProps = {
-    startNote: string;
+    tonic: string;
     quality: TriadType;
+    inversion?: number;
     isTest: boolean;
   };
   
