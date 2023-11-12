@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardHeader, Center, Divider, Flex, Heading } from "@chakra-ui/react";
+import { Button, Card, CardBody, CardHeader, Center, Divider, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,19 +13,27 @@ const Home = () => {
         <CardBody>Ezen az oldalon hangközöket és hármashangzatokat tudsz meghallgatni és gyakorolni.</CardBody>
       </Card>
       <Card m="30px" variant="filled" bg="white" align="center center" maxW="300px">
-        <Button variant="filled">
-          <Link to={`/intervals`}>Hangközök</Link>
-        </Button>
-        <Button variant="filled">
-          <Link to={`/intervals/test`}>Hangköz gyakorlás</Link>
-        </Button>
+        <Link to={`/intervals`}>
+          <Button variant="filled" w="100%"_hover={{background: "gray.100"}}>
+            Hangközök
+          </Button>
+        </Link>
+        <Link to={`/intervals/test`}>
+          <Button variant="filled" w="100%" _hover={{background: "gray.100"}}>
+            Hangköz gyakorlás
+          </Button>
+        </Link>
         <Divider></Divider>
-        <Button variant="filled">
-          <Link to={`/triads`}>Hármashangzatok</Link>
-        </Button>
-        <Button variant="filled">
-          <Link to={`/triads/test`}>Hármashangzat gyakorlás</Link>
-        </Button>
+        <Link to={`/triads`}>
+          <Button variant="filled" w="100%"_hover={{background: "gray.100"}}>
+            Hármashangzatok
+          </Button>
+        </Link>
+        <Link to={`/triads/test`}>
+          <Button variant="filled" w="100%"_hover={{background: "gray.100"}}>
+            Hármashangzat gyakorlás
+          </Button>
+        </Link>
       </Card>
     </Center>
   );
